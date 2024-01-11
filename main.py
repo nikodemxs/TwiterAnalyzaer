@@ -1,6 +1,7 @@
 # import tweepy
 import json
 from abc import ABC, abstractmethod
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 class ApiStrategy(ABC):
     @abstractmethod
@@ -51,8 +52,18 @@ class ApiAdapter:
 # api_secret_key = 'YOUR_API_SECRET_KEY'
 # access_token = 'YOUR_ACCESS_TOKEN'
 # access_token_secret = 'YOUR_ACCESS_TOKEN_SECRET'
-
+analyzer = SentimentIntensityAnalyzer()
 mock_api_strategy = MockApiStrategy()
 api_adapter = ApiAdapter(mock_api_strategy)
 tweets_from_mock = api_adapter.fetchUserTweets('twitterusername', count=5)
-print("Tweets from Mock API:", tweets_from_mock)
+# print("Tweets from Mock API:", tweets_from_mock)
+scores = analyzer.polarity_scores(tweets_from_mock[0]['text'])
+
+if scores['compound'] >= 0.05:
+    sentiment = "positive"
+elif scores['compound'] <= -0.05:
+    sentiment = "negative"
+else:
+    sentiment = "neutral"
+
+print(sentiment, scores)
