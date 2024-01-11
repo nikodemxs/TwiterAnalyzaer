@@ -1,14 +1,58 @@
-# This is a sample Python script.
+# import tweepy
+import json
+from abc import ABC, abstractmethod
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+class ApiStrategy(ABC):
+    @abstractmethod
+    def fetchUserTweets(self, username, count):
+        pass
+
+# Concrete implementation for Twitter API
+# class TwitterApiStrategy(ApiStrategy):
+    # def __init__(self, api_key, api_secret_key, access_token, access_token_secret):
+        # auth = tweepy.OAuthHandler(api_key, api_secret_key)
+        # auth.set_access_token(access_token, access_token_secret)
+        # self.api = tweepy.API(auth)
+
+    # def fetchUserTweets(self, username, count=10):
+    #     try:
+    #         user_tweets = self.api.user_timeline(screen_name=username, count=count)
+    #         return [tweet.text for tweet in user_tweets]
+    #     except tweepy.TweepError as e:
+    #         print(f"Error fetching tweets for {username} from Twitter API: {str(e)}")
+    #         return None
+
+class MockApiStrategy(ApiStrategy):
+    def _load_mock_data(self):
+        try:
+            with open('twitter_mocked.json', 'r') as file:
+                return json.load(file)
+        except FileNotFoundError:
+            print(f"Mock data file twitter_mocked.json not found.")
+            return None
+        except json.JSONDecodeError:
+            print(f"Error decoding JSON from file twitter_mocked.json.")
+            return None
+
+    def fetchUserTweets(self, username, count=10):
+        mock_data = self._load_mock_data()
+        return [tweet for tweet in mock_data["includes"]["tweets"]]
+
+# Adapter class to switch between strategies
+class ApiAdapter:
+    def __init__(self, api_strategy):
+        self.api_strategy = api_strategy
+
+    def fetchUserTweets(self, username, count=10):
+        return self.api_strategy.fetchUserTweets(username, count)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-    print(f'Hello world from JM')  # Press Ctrl+F8 to toggle the breakpoint.
+# api_key = 'YOUR_API_KEY'
+# api_secret_key = 'YOUR_API_SECRET_KEY'
+# access_token = 'YOUR_ACCESS_TOKEN'
+# access_token_secret = 'YOUR_ACCESS_TOKEN_SECRET'
 
-twiterr_account = input(f'Podaj konto twitter')
-asdasdas
-
+mock_api_strategy = MockApiStrategy()
+api_adapter = ApiAdapter(mock_api_strategy)
+tweets_from_mock = api_adapter.fetchUserTweets('twitterusername', count=5)
+print("Tweets from Mock API:", tweets_from_mock)
