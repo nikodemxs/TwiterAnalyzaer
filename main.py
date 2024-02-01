@@ -1,75 +1,41 @@
-# import tweepy
-import json
-from abc import ABC, abstractmethod
+import os
+from dotenv import load_dotenv
+from twitter_api_strategy import TwitterMockApi
+from alpha_vantage_api_strategy import AlphaVantageAPI
+from sentiment_analysis import determine_sentiment
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-class AbstractTwitterApiStrategy(ABC):
-    @abstractmethod
-    def fetchUserTweets(self, username, count):
-        pass
+load_dotenv()
 
-# Concrete implementation for Twitter API
-# class TwitterApi(AbstractTwitterApiStrategy):
-    # def __init__(self, api_key, api_secret_key, access_token, access_token_secret):
-        # auth = tweepy.OAuthHandler(api_key, api_secret_key)
-        # auth.set_access_token(access_token, access_token_secret)
-        # self.api = tweepy.API(auth)
+ALPHA_VANTAGE_API_KEY = "ALPHA_VANTAGE_API_KEY"
 
-    # def fetchUserTweets(self, username, count=10):
-    #     try:
-    #         user_tweets = self.api.user_timeline(screen_name=username, count=count)
-    #         return [tweet.text for tweet in user_tweets]
-    #     except tweepy.TweepError as e:
-    #         print(f"Error fetching tweets for {username} from Twitter API: {str(e)}")
-    #         return None
+alpha_vantage_api_key = os.getenv(ALPHA_VANTAGE_API_KEY)
 
-class TwitterMockApi(AbstractTwitterApiStrategy):
-    def __init__(self):
-        self.user_tweets_mock_filepath = 'mocks/twitter_user_tweets_response_mock.json'
-    
-    def _load_mock_data(self):
-        try:
-            with open(self.user_tweets_mock_filepath, 'r') as file:
-                return json.load(file)
-        except FileNotFoundError:
-            print(f"Mock data file {self.user_tweets_mock_filepath} not found.")
-            return None
-        except json.JSONDecodeError:
-            print(f"Error decoding JSON from file {self.user_tweets_mock_filepath}.")
-            return None
+alpha_vantage_api = AlphaVantageAPI(alpha_vantage_api_key)
 
-    def fetchUserTweets(self, username, count=10):
-        mock_data = self._load_mock_data()
-        return [tweet for tweet in mock_data["includes"]["tweets"]]
-
-# Adapter class to switch between strategies
-class TwitterApiAdapter:
-    def __init__(self, api_strategy):
-        self.api_strategy = api_strategy
-
-    def fetchUserTweets(self, username, count=10):
-        return self.api_strategy.fetchUserTweets(username, count)
-
-def determine_sentiment(scores):
-    if scores['compound'] >= 0.05:
-        return "positive"
-    elif scores['compound'] <= -0.05:
-        return "negative"
-    else:
-        return "neutral"
-
-# api_key = 'YOUR_API_KEY'
-# api_secret_key = 'YOUR_API_SECRET_KEY'
-# access_token = 'YOUR_ACCESS_TOKEN'
-# access_token_secret = 'YOUR_ACCESS_TOKEN_SECRET'
+stock_data = alpha_vantage_api.fetch_stock_data("IBM")
+print(stock_data)
 
 api_strategy = TwitterMockApi()
-twitter_api = TwitterApiAdapter(api_strategy)
-tweets_from_mock = twitter_api.fetchUserTweets('twitterusername', count=5)
+tweets_from_mock = api_strategy.fetch_user_tweets('twitterusername', count=5)
 print("Tweet from Mock API:", tweets_from_mock, '\n')
 
 analyzer = SentimentIntensityAnalyzer()
-scores = analyzer.polarity_scores(tweets_from_mock[0]['text'])
-sentiment = determine_sentiment(scores)
-print("Sentiment analyzer output: ", sentiment)
-print("Sentiment scores output: ", scores)
+if tweets_from_mock:
+    scores = analyzer.polarity_scores(tweets_from_mock[0]['text'])
+    sentiment = determine_sentiment(scores)
+    print("Sentiment analyzer output: ", sentiment)
+    print("Sentiment scores output: ", scores)
+
+
+#  godziny otwarcia 14 - 19
+
+#  createdAt=2023-04-28 03:27:23
+
+#  if twitt nie stworzony w godzinach otwarcia giełdy
+#    30minBefore=2023-04-27 19:00:00
+#    30minAfter=2023-04-28 14:00:00
+
+#  createdAt=2023-04-28 03:00:00
+#  30minBefore=2023-04-28 02:30:00
+#  30minAfter=2023-04-28 03:30:00

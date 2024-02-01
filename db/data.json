@@ -1,0 +1,16 @@
+{
+  "availableCEO": [
+    {
+      "name": "Elon Musk",
+      "company": "Tesla",
+      "twitterAccountName": "elonmusk",
+      "marketSymbol": "TSLA"
+    },
+    {
+      "name": "Tom Cook",
+      "company": "Apple",
+      "twitterAccountName": "tomcook",
+      "marketSymbol": "AAPL"
+    }
+  ]
+}
