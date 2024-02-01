@@ -1,41 +1,100 @@
 import os
+import sys
+import questionary
 from dotenv import load_dotenv
-from twitter_api_strategy import TwitterMockApi
-from alpha_vantage_api_strategy import AlphaVantageAPI
-from sentiment_analysis import determine_sentiment
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from src.constants.main import STOCK_API_KEY
+from src.apis.twitter_api import TwitterMockApi
+from src.apis.stock_api import StockAPI
+from src.utils.config import load_config, get_ceo_by_config_name
+from src.utils.analysis import analyze_sentiment, analyze_correlation
+from src.utils.date import TimeFrameError, calculate_date_range
+from src.utils.export import export_to_csv, export_to_xlsx, export_to_json, print_in_console
 
 load_dotenv()
+config = load_config()
+CEOs = config["availableCEOs"]
 
-ALPHA_VANTAGE_API_KEY = "ALPHA_VANTAGE_API_KEY"
+selected_ceo_name = questionary.select(
+        "Choose a CEO whose tweets you want to compare to auction data",
+        choices=[ceo["name"] for ceo in CEOs]).ask()
 
-alpha_vantage_api_key = os.getenv(ALPHA_VANTAGE_API_KEY)
+ceo = get_ceo_by_config_name(CEOs, selected_ceo_name)
 
-alpha_vantage_api = AlphaVantageAPI(alpha_vantage_api_key)
+twitter_api = TwitterMockApi()
+stock_api = StockAPI(os.getenv(STOCK_API_KEY))
 
-stock_data = alpha_vantage_api.fetch_stock_data("IBM")
-print(stock_data)
+tweets = twitter_api.fetch_user_tweets(ceo["twitterAccountName"], 2)
 
-api_strategy = TwitterMockApi()
-tweets_from_mock = api_strategy.fetch_user_tweets('twitterusername', count=5)
-print("Tweet from Mock API:", tweets_from_mock, '\n')
+if tweets is None:
+    print("Error: Something went wrong with fetching tweets")
+    sys.exit(1)
 
-analyzer = SentimentIntensityAnalyzer()
-if tweets_from_mock:
-    scores = analyzer.polarity_scores(tweets_from_mock[0]['text'])
-    sentiment = determine_sentiment(scores)
-    print("Sentiment analyzer output: ", sentiment)
-    print("Sentiment scores output: ", scores)
+# TODO: remove - debugging purposes only
+print(f"Collected tweets: {tweets}")
 
+data = []
 
-#  godziny otwarcia 14 - 19
+for(i, tweet) in enumerate(tweets):
+    try:
+        sentiment = analyze_sentiment(tweet['text'])
+        date_from, date_to = calculate_date_range(tweet['created_at'])
 
-#  createdAt=2023-04-28 03:27:23
+        # TODO: remove - debugging purposes only
+        print(f"Sentiment: {sentiment}")
+        print(f"Date from: {date_from}")
+        print(f"Date to: {date_to}")
 
-#  if twitt nie stworzony w godzinach otwarcia giełdy
-#    30minBefore=2023-04-27 19:00:00
-#    30minAfter=2023-04-28 14:00:00
+        stock_data = stock_api.fetch_stock_data(ceo["marketSymbol"], date_from, date_to)
 
-#  createdAt=2023-04-28 03:00:00
-#  30minBefore=2023-04-28 02:30:00
-#  30minAfter=2023-04-28 03:30:00
+        # TODO: remove - debugging purposes only
+        print(f"Stock data: {stock_data}")
+
+        if stock_data is [] or stock_data is None:
+            continue
+
+        stock_30_m_before_tweet, stock_30_m_after_tweet = stock_data[-1], stock_data[0]
+        correlation_results = analyze_correlation(sentiment, stock_30_m_after_tweet["last"], stock_30_m_before_tweet["last"])
+
+        # TODO: remove - debugging purposes only
+        print(f"Correlation results: {correlation_results}")
+        print(f"Stock 30 min before tweet: {stock_30_m_before_tweet}")
+        print(f"Stock 30 min after tweet: {stock_30_m_after_tweet}")
+
+        data.append({
+            "accountName": ceo["twitterAccountName"],
+            "tweet": tweet['text'],
+            "date": tweet['created_at'],
+            "sentiment": sentiment,
+            "company": ceo["company"],
+            "stockPrice30MinBeforeTweet": stock_30_m_before_tweet["last"],
+            "stockPrice30MinAfterTweet": stock_30_m_after_tweet["last"],
+            "stockPriceChange": stock_30_m_after_tweet["last"] - stock_30_m_before_tweet["last"],
+            "stockVolume30MinBeforeTweet": stock_30_m_before_tweet["volume"],
+            "stockVolume30MinAfterTweet": stock_30_m_before_tweet["volume"],
+            "isColerationOccurs": correlation_results
+        })
+    except TimeFrameError as e:
+        continue
+
+export_methods = {
+    "Export to csv": export_to_csv,
+    "Export to xlsx": export_to_xlsx,
+    "Export to json": export_to_json,
+    "Print in the console": print_in_console
+}
+
+data_export_method = questionary.select(
+        "What would you like to do with the collected data?",
+        choices=[
+            "Export to csv",
+            "Export to xlsx",
+            "Export to json",
+            "Print in the console"
+        ]).ask()
+
+if data_export_method in export_methods:
+    export_methods[data_export_method](data, f"{ceo["name"]}_tweets_analysis")
+    sys.exit(0)
+else:
+    print("Invalid export method")
+    sys.exit(1)

@@ -1,0 +1,93 @@
+{
+  "data": {
+    "username": "elonmusk",
+    "created_at": "2011-04-20T04:20:00.000Z",
+    "pinned_tweet_id": "1255542774432063488",
+    "id": "2244994945",
+    "name": "Elon Musk"
+  },
+  "includes": {
+    "tweets": [
+      {
+        "text": "🚀 Great news for investors! #Tesla's stocks just hit a record high, marking an impressive surge. Exciting times for fans of innovation and technology! #Stocks #Investing #Growth",
+        "created_at": "2020-04-29T17:01:38.000Z",
+        "id": "1255542774432063488"
+      },
+      {
+        "text": "⚡ Tesla's energy solutions are pushing the stock upward. A positive sign for sustainable investment! #Tesla",
+        "created_at": "2022-09-01T17:51:04.000Z",
+        "id": "147989776389562930"
+      },
+      {
+        "text": "📊 Tesla's quarterly earnings surpass expectations, leading to a stock surge. #Tesla #Earnings",
+        "created_at": "2020-05-07T13:32:44.000Z",
+        "id": "880393570420198072"
+      },
+      {
+        "text": "🚀 Tesla's stock is soaring, reaching new heights. A great day for investors! #Tesla #StockMarket",
+        "created_at": "2021-01-10T10:44:07.000Z",
+        "id": "803883945420486279"
+      },
+      {
+        "text": "👀 Watch out for Tesla's next move as stocks fluctuate. An interesting time for the market. #Tesla",
+        "created_at": "2022-10-23T17:26:16.000Z",
+        "id": "228796461486271525"
+      },
+      {
+        "text": "💼 Leadership changes at Tesla create buzz, influencing stock direction. #Tesla #Leadership",
+        "created_at": "2023-08-02T02:47:14.000Z",
+        "id": "279527199941430680"
+      },
+      {
+        "text": "📈 Tesla's innovation drives stock prices up. Investors are thrilled! #Tesla #Innovation",
+        "created_at": "2022-02-18T12:42:27.000Z",
+        "id": "119821002162365680"
+      },
+      {
+        "text": "📉 Market challenges impact Tesla's stock negatively. Looking forward to bouncing back! #Tesla",
+        "created_at": "2020-05-14T21:33:14.000Z",
+        "id": "848834469724205828"
+      },
+      {
+        "text": "😢 A tough day for Tesla as stocks take a hit. But we're resilient! #Tesla #StockMarket",
+        "created_at": "2022-09-08T04:27:00.000Z",
+        "id": "234782435598433818"
+      },
+      {
+        "text": "📉 Market challenges impact Tesla's stock negatively. Looking forward to bouncing back! #Tesla",
+        "created_at": "2020-07-05T03:14:51.000Z",
+        "id": "332679377682990699"
+      },
+      {
+        "text": "💡 Tesla's recent breakthroughs promise a bright future for its stocks. #Innovation #Tesla",
+        "created_at": "2023-08-02T15:47:12.000Z",
+        "id": "252884513785370397"
+      },
+      {
+        "text": "💡 Tesla's recent breakthroughs promise a bright future for its stocks. #Innovation #Tesla",
+        "created_at": "2020-03-03T23:47:50.000Z",
+        "id": "215728860374938587"
+      },
+      {
+        "text": "📉 Market challenges impact Tesla's stock negatively. Looking forward to bouncing back! #Tesla",
+        "created_at": "2023-05-16T14:50:32.000Z",
+        "id": "234903840442326455"
+      },
+      {
+        "text": "📈 Tesla's innovation drives stock prices up. Investors are thrilled! #Tesla #Innovation",
+        "created_at": "2023-03-22T05:32:10.000Z",
+        "id": "237640640310621120"
+      },
+      {
+        "text": "📉 Market challenges impact Tesla's stock negatively. Looking forward to bouncing back! #Tesla",
+        "created_at": "2023-05-06T15:20:31.000Z",
+        "id": "276076830249676050"
+      },
+      {
+        "text": "🔍 Tesla faces scrutiny, affecting stock prices. Stay tuned for updates. #Tesla #MarketWatch",
+        "created_at": "2020-05-30T23:01:32.000Z",
+        "id": "216438619098586600"
+      }
+    ]
+  }
+}

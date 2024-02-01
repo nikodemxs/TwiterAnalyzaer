@@ -1,0 +1,88 @@
+{
+  "data": {
+    "username": "timcook",
+    "created_at": "2014-04-20T04:20:00.000Z",
+    "pinned_tweet_id": "1255542774432063488",
+    "id": "2244994945",
+    "name": "Tim Cook"
+  },
+  "includes": {
+    "tweets": [
+      {
+        "text": "😢 A challenging day for Apple as stock prices dip. We remain committed to innovation and growth. #Apple #Resilience",
+        "created_at": "2020-02-24T22:08:44.000Z",
+        "id": "197241198112477588"
+      },
+      {
+        "text": "🌍 Apple's global sales drive stock growth, showcasing the strength of our brand worldwide. #Apple #GlobalReach",
+        "created_at": "2021-09-23T14:41:01.000Z",
+        "id": "562428987353772656"
+      },
+      {
+        "text": "🤝 Apple's strategic partnerships bolster our market position, positively impacting our stock. #Apple #Collaboration",
+        "created_at": "2020-08-24T13:44:53.000Z",
+        "id": "226577643800342849"
+      },
+      {
+        "text": "⚡ Apple's move into renewable energy is positively impacting stock values. #Sustainability #Apple",
+        "created_at": "2023-10-29T19:01:05.000Z",
+        "id": "186296843144139066"
+      },
+      {
+        "text": "👩 💼 Leadership initiatives at Apple are steering the company towards new market highs. #Apple #Leadership",
+        "created_at": "2021-03-07T12:59:23.000Z",
+        "id": "295653830125847463"
+      },
+      {
+        "text": "🚀 Despite market fluctuations, Apple's stock demonstrates strong resilience and growth. #Apple #Strength",
+        "created_at": "2023-03-06T20:00:15.000Z",
+        "id": "303611488385793711"
+      },
+      {
+        "text": "👀 Eyes on Apple as stock fluctuates amid market speculation. An engaging time for our investors. #Apple",
+        "created_at": "2022-04-17T14:33:25.000Z",
+        "id": "195533086247077153"
+      },
+      {
+        "text": "🚗 The anticipation around Apple's entry into the electric vehicle market is electrifying the stock market. #Apple #EV",
+        "created_at": "2023-07-16T03:04:57.000Z",
+        "id": "455050804467715385"
+      },
+      {
+        "text": "🔍 Apple is under the microscope, affecting today's stock performance. We're focused on long-term value. #Apple #MarketWatch",
+        "created_at": "2023-05-06T21:57:57.000Z",
+        "id": "231079472328657438"
+      },
+      {
+        "text": "💡 Apple's R&D investments are paying off, promising exciting future prospects for our stocks. #Innovation #Apple",
+        "created_at": "2023-02-02T16:44:30.000Z",
+        "id": "892188340829303334"
+      },
+      {
+        "text": "🌱 Apple's commitment to sustainability is receiving positive feedback from the market. #Apple #Sustainability",
+        "created_at": "2020-10-15T11:33:28.000Z",
+        "id": "178081785765273895"
+      },
+      {
+        "text": "📊 Apple's earnings report exceeds market expectations, propelling our stock forward. #Apple #Earnings",
+        "created_at": "2021-02-27T15:17:24.000Z",
+        "id": "190981938419024453"
+      },
+      {
+        "text": "📈 Apple's latest product release boosts stock prices, highlighting our commitment to innovation. #Apple #Tech",
+        "created_at": "2022-04-09T18:50:30.000Z",
+        "id": "216013036852719906"
+      },
+      {
+        "text": "📉 External market pressures affect Apple's stock today. Looking ahead to brighter days. #Apple",
+        "created_at": "2023-11-12T17:15:08.000Z",
+        "id": "253204882995053769"
+      },
+      {
+        "text": "🚀 Apple's market value continues to climb, a testament to our innovation and market presence. #Apple #StockMarket",
+        "created_at": "2020-08-16T20:11:22.000Z",
+        "id": "795711195180042559"
+      }
+    ]
+  }
+}
