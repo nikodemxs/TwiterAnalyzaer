@@ -4,7 +4,7 @@ from typing import List
 from abc import ABC, abstractmethod
 from src.utils.logger import Logger
 from src.constants.main import MOCKS_DIRECTORY_PATH
-from src.interfaces.main import Tweet, Tweeter_User
+from src.interfaces.main import Tweet, Twitter_User
 
 class AbstractTwitterApiStrategy(ABC):
     @abstractmethod
@@ -49,7 +49,7 @@ class TwitterApi(AbstractTwitterApiStrategy):
         self.logger.debug(f"Making request to {endpoint} with params: {params}")
         return requests.get(f"{self.base_url}{endpoint}", headers=self.auth_headers, params=params)
 
-    def _get_user_by_username(self, username) -> Tweeter_User | None:
+    def _get_user_by_username(self, username) -> Twitter_User | None:
         try: 
             user_response = self._get_request(endpoint=f"users/by/username/{username}")
             user_response_json = user_response.json()
@@ -57,7 +57,7 @@ class TwitterApi(AbstractTwitterApiStrategy):
             self.logger.debug(f"User response JSON: {user_response_json}")
 
             if "data" in user_response_json:
-                user_data: Tweeter_User = user_response_json["data"]
+                user_data: Twitter_User = user_response_json["data"]
                 return user_data
             else:
                 return None
