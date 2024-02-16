@@ -6,6 +6,11 @@ class CEO(TypedDict):
     twitterAccountName: str
     marketSymbol: str
 
+class Tweeter_User(TypedDict):
+    id: str
+    name: str
+    username: str
+
 class Tweet(TypedDict):
     text: str
     created_at: str
