@@ -9,8 +9,244 @@
     {
       "name": "Tim Cook",
       "company": "Apple",
-      "twitterAccountName": "tim_cook",
+      "twitterAccountName": "timcook",
       "marketSymbol": "AAPL"
+    },
+    {
+       "name": "Satya Nadella",
+      "company": "Microsoft",
+      "twitterAccountName": "satyanadella",
+      "marketSymbol": "MSFT"
+    },
+    {
+       "name": "Sundar Pichai",
+      "company": "Alphabet",
+      "twitterAccountName": "sundarpichai",
+      "marketSymbol": "GOOG"
+    },
+    {
+       "name": "Jeff Bezos",
+      "company": "Amazon",
+      "twitterAccountName": "JeffBezos",
+      "marketSymbol": "AMZN"
+    },
+    {
+       "name":"NVIDIA,",
+      "company": "NVIDIA",
+      "twitterAccountName": "@nvidia",
+      "marketSymbol": "NVDA"
+    },
+    {
+       "name":"Meta",
+      "company": "Meta",
+      "twitterAccountName": "Meta",
+      "marketSymbol": "META"
+    },
+    {
+       "name":"Eli Lilly and Company",
+      "company": "Eli Lilly",
+      "twitterAccountName": "EliLillyandCo",
+      "marketSymbol": "LLY"
+    },
+    {
+       "name":"J.P Morgan Chase",
+      "company": "JPMorgan Chase",
+      "twitterAccountName": "@jpmorgan",
+      "marketSymbol": "JPM"
+    },
+    {
+      "name": "UnitedHealth Group",
+      "company": "UnitedHealth",
+      "twitterAccountName": "UnitedHealthGrp",
+      "marketSymbol": "UNH"
+    },
+    {
+       "name": "Walmart Inc.",
+      "company": "Walmart",
+      "twitterAccountName": "WalmartInc",
+      "marketSymbol": "WMT"
+    },
+    {
+      "name": "Michael Miebach",
+      "company": "Mastercard",
+      "twitterAccountName": "MiebachMichael",
+      "marketSymbol": "MA"
+    },
+    {
+      "name": "Johnson & Johnson",
+      "company": "Johnson & Johnson",
+      "twitterAccountName": "JNJNews",
+      "marketSymbol": "JNJ"
+    },
+    {
+      "name": "Oracle",
+      "company": "Oracle",
+      "twitterAccountName": "Oracle",
+      "marketSymbol": "ORCL"
+    },
+    {
+     "name": "AbbVie",
+      "company": "AbbVie",
+      "twitterAccountName": "abbvie",
+      "marketSymbol": "ABBV"
+    },
+    {
+      "name": "Coca-Cola",
+      "company": "Coca-Cola",
+      "twitterAccountName": "CocaCola",
+      "marketSymbol": "KO"
+    },
+    {
+     "name": "Netflix",
+      "company": "Netflix",
+      "twitterAccountName": "netflix",
+      "marketSymbol": "NFLX"
+    },
+    {
+      "name": "PepsiCo",
+      "company": "PepsiCo",
+      "twitterAccountName": "PepsiCo",
+      "marketSymbol": "PEP"
+    },
+    {
+      "name": "Adobe",
+      "company": "Adobe",
+      "twitterAccountName": "Adobe",
+      "marketSymbol": "ADBE"
+    },
+    {
+      "name": "McDonald's",
+      "company": "McDonald",
+      "twitterAccountName": "McDonalds",
+      "marketSymbol": "MCD"
+    },
+    {
+      "name": "Chuck Robbins",
+      "company": "Cisco",
+      "twitterAccountName": "ChuckRobbins",
+      "marketSymbol": "CSCO"
+    },
+    {
+      "name": "Robert Iger",
+      "company": "Walt Disney",
+      "twitterAccountName": "RobertIger",
+      "marketSymbol": "DIS"
+    },
+    {
+      "name": "Abbott",
+      "company": "Abbott Laboratories",
+      "twitterAccountName": "AbbottNews",
+      "marketSymbol": "ABT"
+    },
+    {
+      "name": "Mike Sievert",
+      "company": "T-MOBILE US",
+      "twitterAccountName": "MikeSievert",
+      "marketSymbol": "TMUS"
+    },
+    {
+       "name": "Sasan Goodarzi",
+      "company": "Intuit",
+      "twitterAccountName": "sasan_goodarzi",
+      "marketSymbol": "INTU"
+    },
+    {
+       "name": "Pat Gelsinger",
+      "company": "Intel",
+      "twitterAccountName": "PGelsinger",
+      "marketSymbol": "INTC"
+    },
+    {
+       "name": "Wells Fargo",
+      "company": "Wells Fargo",
+      "twitterAccountName": "WellsFargo",
+      "marketSymbol": "WFC"
+    },
+    {
+       "name": "Arvind Krishna",
+      "company": "IBM",
+      "twitterAccountName": "ArvindKrishna",
+      "marketSymbol": "IBM"
+    },
+    {
+      "name": "Hans Vestberg",
+      "company": "Verizon",
+      "twitterAccountName": "hansvestberg",
+      "marketSymbol": "VZ"
+    },
+
+      {
+      "name": "Cristiano R. Amon",
+      "company": "Qualcomm",
+      "twitterAccountName": "cristianoamon",
+      "marketSymbol": "QCOM"
+    },
+      {
+      "name": "CaterpillarInc",
+      "company": "CaterpillarInc",
+      "twitterAccountName": "CaterpillarInc",
+      "marketSymbol": "CAT"
+    },
+      {
+      "name": "BillR McDermott",
+      "company": "ServiceNow",
+      "twitterAccountName": "BillRMcDermott",
+      "marketSymbol": "NOW"
+    },
+    {
+      "name": "Nike",
+      "company": "Nike",
+      "twitterAccountName": "Nike",
+      "marketSymbol": "NKE"
+    },
+    {
+      "name": "Albert Bourla",
+      "company": "Pfizer",
+      "twitterAccountName": "Albert Bourla",
+      "marketSymbol": "PFE"
+    },
+     {
+      "name": "American Express",
+      "company": "American Express",
+      "twitterAccountName": "AmericanExpres",
+      "marketSymbol": "AXP"
+    },
+    {
+      "name": "Amgen",
+      "company": "Amgen",
+      "twitterAccountName": "Amgen",
+      "marketSymbol": "AMGN"
+    },
+    {
+      "name": "Texas Instruments",
+      "company": "Texas Instruments",
+      "twitterAccountName": "TXInstruments",
+      "marketSymbol": "TXN"
+    },
+    {
+      "name": "Morgan Stanley",
+      "company": "Morgan Stanley",
+      "twitterAccountName": "MorganStanley",
+    "marketSymbol": "MS"
+    },
+    {
+      "name": "Philip Morris",
+      "company": "Philip Moris",
+      "twitterAccountName": "InsidePMI",
+    "marketSymbol": "PM"
+    },
+    {
+      "name": "S&P Global",
+      "company": "S&P Global",
+      "twitterAccountName": "S&PGlobal",
+    "marketSymbol": "SPGI"
+    },
+    {
+      "name": "dara khosrowshahi",
+      "company": "UBER",
+      "twitterAccountName": "@dkhos",
+    "marketSymbol": "UBER"
     }
   ]
 }
+
